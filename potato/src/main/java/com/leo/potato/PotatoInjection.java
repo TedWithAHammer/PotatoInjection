@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PotatoInjection {
 
-    int id();
+    int id() default -1;
 
     String idStr() default "";
 

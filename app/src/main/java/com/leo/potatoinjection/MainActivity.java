@@ -9,7 +9,7 @@ import com.leo.potato.PotatoInjection;
 
 public class MainActivity extends AppCompatActivity {
 
-    @PotatoInjection(id = R.id.text)
+    @PotatoInjection(idStr = "text")
     TextView text;
 
     @Override

@@ -17,13 +17,16 @@ public class Potato {
             if (field.isAnnotationPresent(PotatoInjection.class)) {
                 PotatoInjection potatoInjection = field.getAnnotation(PotatoInjection.class);
                 int id = potatoInjection.id();
-                String idStr=potatoInjection.idStr();
+                String idStr = potatoInjection.idStr();
                 final String clickStr = potatoInjection.click();
                 final String longClickStr = potatoInjection.longClick();
 //                String itemClickStr = potatoInjection.itemClick();
                 field.setAccessible(true);
                 Object view = null;
                 try {
+                    if (!TextUtils.isEmpty(idStr)) {
+                        id = act.getResources().getIdentifier(idStr, "id", act.getPackageName());
+                    }
                     //// TODO: 2016/5/23 idstr analysis
                     view = act.findViewById(id);
                     field.set(act, view);
