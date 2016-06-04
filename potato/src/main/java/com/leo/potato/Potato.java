@@ -34,14 +34,14 @@ public class Potato {
                     e.printStackTrace();
                 }
                 if (view instanceof View) {
-                    View v = (View) view;
+                    View tempView = (View) view;
                     if (!TextUtils.isEmpty(clickStr)) {
-                        ((View) view).setOnClickListener(new View.OnClickListener() {
+                        tempView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 try {
                                     Method method = act.getClass().getMethod(clickStr);
-                                    method.invoke(act);
+                                    method.invoke(act,v);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -49,12 +49,12 @@ public class Potato {
                         });
                     }
                     if (!TextUtils.isEmpty(longClickStr)) {
-                        ((View) view).setOnLongClickListener(new View.OnLongClickListener() {
+                        tempView.setOnLongClickListener(new View.OnLongClickListener() {
                             @Override
                             public boolean onLongClick(View v) {
                                 try {
                                     Method method = act.getClass().getMethod(longClickStr);
-                                    method.invoke(act);
+                                    method.invoke(act,v);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
