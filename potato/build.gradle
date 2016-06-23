@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
+    //neccessary
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
@@ -16,8 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
+    compileOptions{
 
+    }
+}
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
