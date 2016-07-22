@@ -41,8 +41,9 @@ public class Potato {
                                 @Override
                                 public void onClick(View v) {
                                     try {
-                                        Method method = act.getClass().getDeclaredMethod(clickStr,View.class);
-                                        method.invoke(act,v);
+                                        Method method = act.getClass().getDeclaredMethod(clickStr, View.class);
+                                        method.setAccessible(true);
+                                        method.invoke(act, v);
                                     } catch (Exception e) {
                                         e.printStackTrace();
                                     }
