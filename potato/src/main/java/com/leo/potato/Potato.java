@@ -56,6 +56,7 @@ public class Potato {
                                 public boolean onLongClick(View v) {
                                     try {
                                         Method method = act.getClass().getDeclaredMethod(longClickStr);
+                                        method.setAccessible(true);
                                         method.invoke(act, v);
                                     } catch (Exception e) {
                                         e.printStackTrace();
